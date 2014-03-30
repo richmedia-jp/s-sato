@@ -9,7 +9,7 @@
 		<p>美容室登録ページです</p>
 
 		<!-- フォーム部分 -->
-		<form action="db_register_salons.php" method="POST">
+		<form action="db_register_salons.php" method="POST" enctype="multipart/form-data">
 			美容室名　<input type="text" name="salon_name" value="サロン名" /><br>
 
 			都道府県　<select name="state">
@@ -44,9 +44,15 @@
 			定休日 <input type="text" name="closed" value="年中無休" /><br>
 			紹介タイトル <input type="text" name="salon_introduction_title" value="紹介タイトルです" /><br>
 			紹介本文 <input type="text" name="salon_introduction_text" value="紹介本文です" /><br>
-			店舗画像1 <input type="file" name="salon_image_1" /><br>
+<!--
+ 			店舗画像1 <input type="file" name="salon_image_1" /><br>
 			店舗画像2 <input type="file" name="salon_image_2" /><br>
-			店舗画像3 <input type="file" name="salon_image_3" /><br>
+			店舗画像3 <input type="file" name="salon_image_3" /><br> 
+-->
+			<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>"> 
+			店舗画像1 <input type="file" name="image[]"><br>
+			店舗画像2 <input type="file" name="image[]"><br>
+			店舗画像3 <input type="file" name="image[]"><br>
 			おすすめフラグ <input type="hidden" name="recommend_flg" value=0 />
 						 <input type="checkbox" name="recommend_flg" value=1 /><br>
 			登録タグ <select name="tags" /></select><br>
